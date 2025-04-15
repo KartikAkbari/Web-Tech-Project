@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Scroll Transition</title>
+    <style>
+        /* Basic reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Full-screen section with parallax effect */
+        .section {
+            position: relative;
+            height: 100vh;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            /* Default opacity */
+            transition: opacity 0.5s ease-out;
+        }
+
+        /* Dynamic section backgrounds */
+        .section:nth-child(1) {
+            background-image: url('image3.jpg');
+            animation: introBackground 4s ease-out forwards, parallaxEffect 15s infinite alternate;
+        }
+
+        .section:nth-child(2) {
+            background-image: url('image1.jpg');
+        }
+
+        .section:nth-child(3) {
+            background-image: url('image2.jpg');
+        }
+
+        .section:nth-child(4) {
+            background-image: url('image4.jpg');
+        }
+
+        /* Content styling */
+        .content {
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        /* Active class to fade in content */
+        .content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button styling */
+        .btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #ff5f6d, #ffc371);
+            /* Gradient background */
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            /* Rounded corners */
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+            /* Smooth transitions */
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+            /* Shadow for depth */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            /* Text shadow for contrast */
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background: linear-gradient(145deg, #ff416c, #ff4b2b);
+            /* Darker gradient on hover */
+            transform: scale(1.1);
+            /* Slightly grow on hover */
+            box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.3);
+            /* Enhanced shadow on hover */
+        }
+
+        /* Button active effect */
+        .btn:active {
+            transform: scale(0.98);
+            /* Slight shrink on click */
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            /* Reduced shadow on click */
+        }
+
+        .btn2 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(145deg, #ff5f6d, #ffc371);
+            /* Gradient background */
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            /* Rounded corners */
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+            /* Smooth transitions */
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+            /* Shadow for depth */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            /* Text shadow for contrast */
+        }
+
+        /* Button hover effect */
+        .btn2:hover {
+            background: linear-gradient(145deg, #ff416c, #ff4b2b);
+            /* Darker gradient on hover */
+            transform: scale(1.1);
+            /* Slightly grow on hover */
+            box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.3);
+            /* Enhanced shadow on hover */
+        }
+
+        /* Button active effect */
+        .btn2:active {
+            transform: scale(0.98);
+            /* Slight shrink on click */
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            /* Reduced shadow on click */
+        }
+
+        .btn,
+        .btn2 {
+            text-decoration: none;
+        }
+
+        .btn,
+        .btn2:visited {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dynamic Sections -->
+    <div class="section">
+        <div class="content">
+            <h1>Welcome to the Sorting Algorithms Visualizer!</h1>
+            <p>Explore various sorting algorithms with interactive visualizations. Each section provides an in-depth
+                explanation of how the algorithm works and its time complexities.</p>
+            <p>Scroll below to see the algorithms in action and view the logs of each sorting process!</p>
+        </div>
+    </div>
+    <div class="section">
+        <div class="content">
+            <h1>Insertion Sort</h1>
+            <p>Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time. It is
+                much like sorting playing cards in your hands.</p>
+            <p>Best Case Time Complexity: O(n)<br>Worst Case Time Complexity: O(n^2)<br>Space Complexity: O(1)</p>
+        </div>
+        <a href="http://localhost/try/insertionsort.php" class="btn">Visualize Insertion Sort</a>
+        <a href="http://localhost/try/view_logs.php" class="btn2">View Sorting Logs</a>
+    </div>
+    <div class="section">
+        <div class="content">
+            <h1>Merge Sort</h1>
+            <p>Merge Sort is a divide-and-conquer algorithm. It divides the input array into two halves, sorts each
+                half, and then merges the two sorted halves.</p>
+            <p>Best Case Time Complexity: O(n log n)<br>Worst Case Time Complexity: O(n log n)<br>Space Complexity: O(n)
+            </p>
+        </div>
+        <a href="http://localhost/try/mergesort.php" class="btn">Visualize Merge Sort</a>
+        <a href="http://localhost/try/view_logs.php" class="btn2">View Sorting Logs</a>
+    </div>
+    <div class="section">
+        <div class="content">
+            <h1>Bubble Sort</h1>
+            <p>Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in
+                the wrong order.</p>
+            <p>Best Case Time Complexity: O(n)<br>Worst Case Time Complexity: O(n^2)<br>Space Complexity: O(1)</p>
+        </div>
+        <a href="http://localhost/try/bubblesort.php" class="btn">Visualize Bubble Sort</a>
+        <a href="http://localhost/try/view_logs.php" class="btn2">View Sorting Logs</a>
+    </div>
+
+    <script>
+        window.onload = function () {
+            // Scroll directly to the Introduction section (first section)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (currentScroll >= sectionTop - windowHeight && currentScroll < sectionTop + sectionHeight) {
+                    // Calculate fade effect based on scroll position within the section
+                    const scrollWithinSection = currentScroll - sectionTop;
+                    const opacity = 1 - Math.abs(scrollWithinSection / sectionHeight);
+
+                    // Set current section's opacity
+                    section.style.opacity = opacity;
+
+                    // Fade in the previous section only if scrolling up
+                    if (index > 0 && currentScroll < sectionTop) {
+                        sections[index - 1].style.opacity = 1 - opacity;
+                    }
+
+                    // Fade in the next section only if scrolling down
+                    if (index < sections.length - 1 && currentScroll > sectionTop) {
+                        sections[index + 1].style.opacity = 1 - opacity;
+                    }
+                }
+            });
+
+            // Update scroll position
+            lastScrollTop = currentScroll;
+        });
+
+        // Fade-in content when the section is in view
+        const sections = document.querySelectorAll('.section');
+        const observerOptions = {
+            threshold: 0.1, // Trigger fade-in when 50% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.content').classList.add('active');
+                } else {
+                    entry.target.querySelector('.content').classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+    </script>
+
+</body>
+
+</html>
